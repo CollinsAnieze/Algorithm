@@ -73,5 +73,34 @@ namespace Algorithm.CodeWars
 
             return result.ToString().TrimEnd();
         }
+
+        /*
+            Complete the solution so that it returns true if the first argument(string) passed in ends with the 2nd argument (also a string).
+            Examples:
+
+            Inputs: "abcd", "cd"
+            Output: true
+
+            Inputs: "abc", "d"
+            Output: false
+         */
+
+        public static bool ConfirmFirstArgumentEndStringEndsWith2ndArg(string startStr, string endString)
+        {
+            if (startStr.Length < endString.Length)
+            {
+                return false;
+            }
+
+            int lengthDiff = startStr.Length - endString.Length;
+            StringBuilder builder = new StringBuilder(endString.Length);
+
+            for (int i = lengthDiff; i < startStr.Length; i++)
+            {
+                builder.Append(startStr[i]);
+            }
+
+            return builder.ToString() == endString;
+        }
     }
 }
