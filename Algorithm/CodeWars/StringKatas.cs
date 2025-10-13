@@ -102,5 +102,31 @@ namespace Algorithm.CodeWars
 
             return builder.ToString() == endString;
         }
+
+        /*
+         Write a function that takes an integer as input, and returns the number of bits that are equal to one in 
+         the binary representation of that number. You can guarantee that input is non-negative.
+         Example: The binary representation of 1234 is 10011010010, so the function should return 5 in this case        
+         */
+
+        public static int CountBits(int num)
+        {
+            int bitCounts = 0;
+
+            while (num is not 0)
+            {
+                int quotient = num / 2;
+                int remainder = num % 2;
+
+                if (remainder == 1)
+                {
+                    bitCounts += 1;
+                }
+
+                num = quotient;
+            }
+
+            return bitCounts;
+        }
     }
 }
