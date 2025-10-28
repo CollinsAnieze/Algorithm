@@ -128,5 +128,62 @@ namespace Algorithm.CodeWars
 
             return bitCounts;
         }
+
+        //Title case problem
+        public static string TitleCase(string title, string minorWords = "")
+        {
+            int titleLength = title.Length;
+            var strBuilder = new StringBuilder(titleLength);
+            var titleWordsArr = title.Split(' ');
+
+            if (string.IsNullOrEmpty(minorWords) || minorWords.Equals("null"))
+            {
+                for (int i = 0; i < titleWordsArr.Length; i++)
+                {
+                    strBuilder.Append(CapitalizeFirstWord(titleWordsArr[i]) + " ");
+                }
+
+                return strBuilder.ToString().TrimEnd();
+            }
+
+            var minorWordsArr = minorWords.Split(' ');
+
+            for (int i = 0; i < titleWordsArr.Length; i++)
+            {
+                if (i == 0 && minorWordsArr.Contains(titleWordsArr[i], StringComparer.OrdinalIgnoreCase))
+                {
+                    strBuilder.Append(CapitalizeFirstWord(titleWordsArr[i]) + " ");
+                }
+                else if (minorWordsArr.Contains(titleWordsArr[i], StringComparer.OrdinalIgnoreCase))
+                {
+                    strBuilder.Append(titleWordsArr[i].ToLower() + " ");
+                }
+                else
+                {
+                    strBuilder.Append(CapitalizeFirstWord(titleWordsArr[i]) + " ");
+                }
+            }
+
+            return strBuilder.ToString().TrimEnd();
+        }
+
+        private static string CapitalizeFirstWord(string word)
+        {
+            var result = new StringBuilder(word.Length);
+
+            for (int i = 0; i < word.Length; i++)
+            {
+                if (i == 0)
+                {
+                    result.Append(word[i].ToString().ToUpper());
+                }
+                else
+                {
+                    result.Append(word[i].ToString().ToLower());
+                }
+            }
+
+            return result.ToString();
+        }
     }
 }
