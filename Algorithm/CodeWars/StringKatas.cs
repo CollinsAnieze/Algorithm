@@ -185,5 +185,20 @@ namespace Algorithm.CodeWars
 
             return result.ToString();
         }
+
+        public static bool IsSquare(int n)
+        {
+            if (n < 0)
+                return false;
+
+            var squareRootResult = Math.Sqrt(n);
+            var squareRootIntegerValue = (int)squareRootResult;
+            var squareRootDecimalValue = squareRootResult - squareRootIntegerValue;
+       
+            if (squareRootDecimalValue > 0)
+                return false;
+
+            return true;
+        }
     }
 }
