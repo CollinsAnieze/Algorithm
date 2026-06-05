@@ -1,5 +1,5 @@
 ﻿using Algorithm.CodeWars;
 
-Console.WriteLine(StringKatas.IsSquare(8));
+Console.WriteLine(StringKatas.MultiplesOfNumberSum(10));
 //Console.WriteLine(StringKatas.MakeComplement("GTAT") == "CATA");
 Console.ReadLine();
